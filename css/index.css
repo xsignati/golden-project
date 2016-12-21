@@ -146,22 +146,24 @@ a{
 	background: rgba(0, 0, 0, 0.5);
 }
 #text-wrap{
+	word-wrap: break-word;
 	overflow:auto;
 	height:38em;
 	background: rgba(0, 0, 0, 0.5);
 }
-#date{
+.date{
 	padding-left:1em;
 	color:white;
 }
-#title{
+.title{
 	margin:0;
 	padding-left:1em;
 	padding-right:1em;
 	font-size:2em;
 	color:white;
 }
-#content{
+.content{
+	
 	margin:0;
 	padding-left:1em;
 	padding-right:1em;
