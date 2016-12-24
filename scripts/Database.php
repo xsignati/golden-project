@@ -45,7 +45,6 @@ class Database{
 	}
 	
 	public function createTables(){
-		
 		$sql = "CREATE TABLE IF NOT EXISTS news (
 		id int NOT NULL AUTO_INCREMENT,
 		type VARCHAR(30),
@@ -58,7 +57,21 @@ class Database{
 		if ($this->connection->query($sql) === TRUE) {
 			echo "Table created successfully";
 		} else {
-			echo "Error creating table General: " . $this->connection->error;
+			echo "Error creating table news: " . $this->connection->error;
+			return false;
+		}
+		
+		$sql = "CREATE TABLE IF NOT EXISTS images (
+		id int NOT NULL AUTO_INCREMENT,
+		type VARCHAR(30),
+		path VARCHAR(255),
+		PRIMARY KEY (id)
+		)";
+
+		if ($this->connection->query($sql) === TRUE) {
+			echo "Table created successfully";
+		} else {
+			echo "Error creating table images: " . $this->connection->error;
 			return false;
 		}
 	}
