@@ -1,21 +1,8 @@
-<!DOCTYPE html>
-<html> 
-	<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta charset="utf-8">
-		<link href="css/index.css" rel="stylesheet">
-		<script type="text/javascript" src="lib/jquery-1.12.1.min.js"> </script>
-		<title> Golden-Project </title>
-	</head>
-	<body>
-	<script type="text/javascript" charset="UTF-8" src="scripts/homeDatabaseLoader.js"></script>
-		<div id="wrap">	
-			<div id="left-wrap">
-				<div id="left">
-					<div id="left-left">
+<div id="left-left">
 						<div id="paw1" class="paw">
 							<a href="#" id="paw-option-1">
 								<div id="pad1" class="pad">
-									<p id="pad-option-1" class="pad-option">O mnie</p>
+									<p id="pad-option-1" class="pad-option"></p>
 									<div id="alter-pad1" class="alter-pad"></div>
 									<div class="toe1 toe"></div>
 									<div class="toe2 toe"></div>
@@ -28,7 +15,7 @@
 							<div id="paw2" class="paw">
 								<a href="#" id="paw-option-2">
 									<div id="pad2" class="pad">
-										<p id="pad-option-2" class="pad-option">Kontakt</p>
+										<p id="pad-option-2" class="pad-option"></p>
 										<div id="alter-pad2" class="alter-pad"></div>
 										<div class="toe1 toe"></div>
 										<div class="toe2 toe"></div>
@@ -43,7 +30,7 @@
 						<div id="paw3" class="paw">
 							<a href="#" id="paw-option-3">
 								<div id="pad3" class="pad">
-									<p id="pad-option-3" class="pad-option">Wooof!</p>
+									<p id="pad-option-3" class="pad-option"></p>
 									<div id="alter-pad3" class="alter-pad"></div>
 									<div class="toe1 toe"></div>
 									<div class="toe2 toe"></div>
@@ -54,9 +41,9 @@
 						</div>
 						<div id="left-right-down">
 							<div id="paw4" class="paw">
-								<a href="#" id="paw-option-4">
+								<a href="#" id="paw-option-4" >
 									<div id="pad4" class="pad">
-										<p id="pad-option-4" class="pad-option">Galeria</p>
+										<p id="pad-option-4" class="pad-option"></p>
 										<div id="alter-pad4" class="alter-pad"></div>
 										<div class="toe1 toe"></div>
 										<div class="toe2 toe"></div>
@@ -67,19 +54,3 @@
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-			<div id="right-wrap">
-				<div id="right">
-					<div id="top-logo-wrap">
-						<div id="top-logo" class="logo">
-							<p id="logo-title">SIR ROBIN JR</p>
-						</div>
-					</div>
-					<div id="text-wrap"></div>
-				</div>
-			</div>
-			<div id="footer">&copy; 2017 Xsignati.</div>
-		</div>
-	</body>
-</html>

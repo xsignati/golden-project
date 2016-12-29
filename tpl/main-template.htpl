@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html> 
+	<head>
+		<meta charset="utf-8">
+		[css-template.htpl]
+		<script type="text/javascript" src="lib/jquery-1.12.1.min.js"> </script>
+		<title> Golden-Project </title>
+	</head>
+	<body>
+	[js-template.htpl]
+		<div id="wrap">	
+			<div id="left-wrap">
+				<div id="left">
+					[left-template.htpl]
+				</div>
+			</div>
+			<div id="right-wrap">
+				<div id="right">
+					<div id="top-logo-wrap">
+						<div id="top-logo" class="logo">
+							<p id="logo-title"></p>
+						</div>
+					</div>
+					[right-template.htpl]
+				</div>
+			</div>
+			<div id="footer">© 2017 Xsignati.</div>
+		</div>
+	</body>
+</html>
