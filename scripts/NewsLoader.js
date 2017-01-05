@@ -1,5 +1,5 @@
+var prefix = "../";
 $(function() {
-   loadIndexContent();
    loadNews(0);
     $('#text-wrap').scroll(function() {
         if($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
@@ -11,7 +11,7 @@ $(function() {
 	function loadNews(rowStart) {
 		$.ajax({
 			type: "post",
-			url: "scripts/News.php",
+			url: prefix + "scripts/News.php",
 			dataType: "json",
 			data: {
 				rowStart: rowStart
@@ -19,7 +19,7 @@ $(function() {
 			success: function(data) {
 				   $.each(data, function(index, object) {
 						var textDiv = document.createElement("div");
-						$(textDiv).attr("id", object['type']);
+						$(textDiv).attr("id", object['tag']);
 						$(textDiv).addClass("text");
 						$('#text-wrap').append(textDiv);
 							//date paragraph
@@ -43,14 +43,14 @@ $(function() {
 									//news image
 									var newsImage = document.createElement("div");
 									$(newsImage).addClass("news-image");
-									if(object['path'] != null){
-										$(newsImage).css('background-image', 'url(' + object['path'] + ')');
+									if(object['imageLink'] != null){
+										$(newsImage).css('background-image', 'url(' + prefix + object['imageLink'] + ')');
 										$(newsImageWrap).append(newsImage);
 									}
 								//news content	
 								var contentP = document.createElement("p");
-								$(contentP).addClass("content");
-								$(contentP).text(object['content']);
+								$(contentP).addClass("image-text");
+								$(contentP).text(object['text']);
 								$(newsWrap).append(contentP);							
 				 });   
 			},
@@ -60,29 +60,5 @@ $(function() {
 		});
 	};
 
-	function loadIndexContent() {
-		$.ajax({
-			type: "post",
-			url: "scripts/IndexTexts.php",
-			dataType: "json",
-			success: function(data) {
-				   $.each(data, function(index, object) {
-						var selector = '#';
-						if(object['type'] == 'body'){
-							var selector = '';
-						}
-						if(object['content'] !== null){
-							$(selector + object['type']).text(object['content']);
-						}
-						if(object['path'] !== null){
-							$(selector + object['type']).css('background-image', 'url(' + object['path'] + ')');
-						}
-				 });    
-			},
-			error: function(){
-				alert('error getting IndexTexts data!');
-			}
-		});
-	};
 });
 

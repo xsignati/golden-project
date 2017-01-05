@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html> 
+	<head>
+		<meta charset="utf-8">
+		<?php foreach($sheets as $sheet) { extract($sheet); ?>
+			<?php echo "<link href='".$cssPath."'rel='stylesheet'>" ?>
+		<?php } ?>
+		<script type="text/javascript" src="../lib/jquery-1.12.1.min.js"> </script>
+		<title> <?php echo $title ?> </title>
+	</head>
+	<body class="gal">
+	<?php foreach($scripts as $script) { extract($script); ?>
+		<?php echo "<script type='text/javascript' charset='UTF-8' src='".$scriptPath."'>.</script>" ?>
+	<?php } ?>
+		<div id="wrap">	
+			<div id="left-wrap">
+				<div id="left">
+					<div id="gallery-images-wrap">
+						<?php foreach($images as $key => $value) { extract($images); ?>
+							<?php echo "<div class = 'gallery-image-wrap'>
+								<div class='clip-wrap'>
+									<div class='clip'></div>
+									<div class='clip'></div>
+									<div class='clip'></div>
+									<div class='clip'></div>
+								</div>
+								<a href='".$value['maxLink']."'>
+									<div class = 'gallery-image-wrap2'>
+										<img class ='gallery-image' src=".$value['minLink']."></img>
+									</div>
+								</a>
+								<div class='clip-wrap'>
+									<div class='clip'></div>
+									<div class='clip'></div>
+									<div class='clip'></div>
+									<div class='clip'></div>
+								</div>
+							</div>"
+							?>
+						<?php } ?>
+					</div>
+				</div>
+			</div>
+			<div id="right-wrap">
+				<div id="right">
+					<div id="top-logo-wrap">
+						<div id="top-logo" class="logo">
+							<p id="logo-title"><?php echo $logo_title ?></p>
+						</div>
+					</div>
+					<div id="text-wrap">
+						<div id="gallery-wrap">
+							<p id="gallery"><?php echo $padOption4 ?></p>
+						</div>
+						<?php foreach($photoSet as $key => $value) { extract($photoSet); ?>
+						<?php echo "<div class='text'>
+							<a href='".$value['link']."'>".
+								"<p class='date'>".$value['date']."</p>
+								<div class='news-wrap'>
+									<p class='title'>".$value['photoSet']."</p>
+								</div>
+							</a>
+						</div>" ?>
+						<?php } ?>
+					</div>
+				</div>
+			</div>
+			<div id="footer">©<?php echo date("Y")?> Xsignati.</div>
+		</div>
+	</body>
+</html>

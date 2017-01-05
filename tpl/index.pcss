@@ -1,6 +1,5 @@
 /* global settings */
-body{
-	background-image: url("resources/home-background.jpg");
+.hom{
 	font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif;
 	font-size:1em;
 	background-repeat: no-repeat;
@@ -48,22 +47,18 @@ a{
 }
 
 #paw1:hover > a > #pad1 > #alter-pad1{
-	background-image: url("resources/home-paw-1.jpg");
 	display:block;
 }
 
 #paw2:hover > a > #pad2 > #alter-pad2{
-	background-image: url("resources/home-paw-2.jpg");
 	display:block;
 }
 
 #paw3:hover > a > #pad3 > #alter-pad3{
-	background-image: url("resources/home-paw-3.jpg");
 	display:block;
 }
 
 #paw4:hover > a > #pad4 > #alter-pad4{
-	background-image: url("resources/home-paw-4.jpg");
 	display:block;
 }
 
@@ -185,9 +180,9 @@ a{
 
 /*logo*/
 #top-logo-wrap{
+	user-select: none; 
+	cursor: default;
 	height:5em;
-	//background-image: linear-gradient(to right, #FFCBA5 0%, #FFF7A5 50%, #BFFFA5 75%, #A5B3FF 100%);
-	//background-image: linear-gradient(to right, #B68D3D 0%, #FDD05D 25%, #DEB249 50%, #FFEAA3 80%, #B28B3E 100%);
 	background-image: linear-gradient(to top, #B68D3D 0%, #FDD05D 25%, #DEB249 50%, #FFEAA3 80%, #B28B3E 100%);
 }
 .logo{
@@ -201,8 +196,7 @@ a{
 	opacity:0.6;
 	font-size:3em;
 	font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-	user-select: none; 
-	cursor: pointer;
+	
 }
 
 /*news*/
@@ -223,7 +217,6 @@ a{
 
 #news-wrap{
 	height:12em;
-	//background-color:black;
 	background: rgba(0, 0, 0, 0.5);
 }
 
@@ -237,7 +230,6 @@ a{
 
 .news-image-wrap2{
 	height:10em;
-	//background-color:black;
 	background: rgba(0, 0, 0, 0.5);
 }
 
@@ -279,7 +271,7 @@ a{
 	color:#FDD05D;
 	opacity:0.9;
 }
-.content{
+.image-text{
 	
 	margin:0;
 	padding-left:1em;
@@ -288,7 +280,7 @@ a{
 	font-size:1.2em;
 	opacity:0.9;
 }
-.content:after{
+.image-text:after{
   content: "";
   display: inline-block;
   width: 100%;

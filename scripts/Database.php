@@ -20,7 +20,7 @@ class Database{
 		$selectedDB= mysqli_select_db($this->connection,$this->dbName);
 		if(!$selectedDB){
 			// Create database
-			$sql = "CREATE DATABASE `$this->dbName`";
+			$sql = "CREATE DATABASE `$this->dbName` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci";
 			if ($this->connection->query($sql) === TRUE) {
 				echo "Database created successfully";
 			} else {
@@ -37,15 +37,12 @@ class Database{
 	public function connectDatabase(){
 		// Connect to database
 		$this->connection = new mysqli($this->serverName, $this->userName, $this->password, $this->dbName);
-		if ($this->connection->connect_error) {
-			die("Connection failed: " . $this->connection->connect_error);
-			return false;
-		} 
-		else return true;
+		mysqli_set_charset($this->connection,"UTF8");
+		return $this->connection;
 	}
 	
 	public function createTables(){
-		$sql = "CREATE TABLE IF NOT EXISTS news DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci (
+		$sql = "CREATE TABLE IF NOT EXISTS news (
 		id int NOT NULL AUTO_INCREMENT,
 		type VARCHAR(255),
 		date DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -61,7 +58,7 @@ class Database{
 			return false;
 		}
 		
-		$sql = "CREATE TABLE IF NOT EXISTS images DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci (
+		$sql = "CREATE TABLE IF NOT EXISTS images (
 		id int NOT NULL AUTO_INCREMENT,
 		type VARCHAR(255),
 		path VARCHAR(255),
@@ -75,11 +72,10 @@ class Database{
 			return false;
 		}
 		
-		$sql = "CREATE TABLE IF NOT EXISTS index_texts DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci(
+		$sql = "CREATE TABLE IF NOT EXISTS index_texts(
 		id int NOT NULL AUTO_INCREMENT,
 		type VARCHAR(255),
 		content TEXT,
-		path TEXT,
 		PRIMARY KEY (id)
 		)";
 
@@ -89,11 +85,21 @@ class Database{
 			echo "Error creating table index_texts: " . $this->connection->error;
 			return false;
 		}
+		
+		$sql = "CREATE TABLE IF NOT EXISTS gallery(
+		id int NOT NULL AUTO_INCREMENT,
+		date DATETIME DEFAULT CURRENT_TIMESTAMP,
+		title VARCHAR(255),
+		link TEXT,
+		PRIMARY KEY (id)
+		)";
+
+		if ($this->connection->query($sql) === TRUE) {
+			echo "Table gallery created successfully";
+		} else {
+			echo "Error creating table gallery: " . $this->connection->error;
+			return false;
+		}
 	}
-	
-	public function getConnection()
-    {
-          return $this->connection;
-    }
 }
 ?>
