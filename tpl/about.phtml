@@ -1,0 +1,67 @@
+		<?php foreach($sheets as $sheet) { ?>
+			<?php echo "<link href='".$sheetTarget."'rel='stylesheet'>" ?>
+		<?php } ?>
+	</head>
+	<body class="abo">
+	<?php foreach($scripts as $script) { extract($script); ?>
+		<?php echo "<script type='text/javascript' charset='UTF-8' src='".$scriptPath."'>.</script>" ?>
+	<?php } ?>
+		<div id="wrap">	
+			<div id="left-wrap">
+				<div id="left">
+					<div id="ids-wrap">
+						<a href= <?php echo "'".$linkMother."'"?>>
+							<div id="id-mother-wrap">
+								<div id="id-mother" class="id">
+								<div id="link-image-m" class="link-image"> <p><?php echo $motherText ?></p> </div>
+									<div id="a-logo"> 
+										<p> Pro Cane Bono </p>
+									</div>
+									<p id="agency"> FCI </p>
+									<p id="agent">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspNeffi&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </p>
+									<p id="number">&nbsp&nbsp&nbsp3&nbsp9&nbsp1&nbsp9&nbsp2&nbsp1&nbsp&nbsp&nbsp </p>
+									<img id ="photo" src="../resources/neffi.jpg"> </img>
+									<img class="print" src="../resources/pawneffi.png"> </img>
+								</div>
+							</div>
+						</a>
+						<a href= <?php echo "'".$linkFather."'" ?>>
+							<div id="id-father" class="id">
+								<div id="link-image-f" class="link-image"> <p><?php echo $fatherText ?> </p></div>
+								<div id="b-logo"> 
+									<img src="../resources/adsum.jpg"></img>
+								</div>
+								<p id="agency"> FCI </p>
+								<p id="agent">&nbsp&nbspCh.Pl. Robin&nbsp&nbsp&nbsp </p>
+								<p id="number">&nbsp&nbsp&nbsp3&nbsp6&nbsp5&nbsp0&nbsp7&nbsp0&nbsp&nbsp&nbsp </p>
+								<img id="photo" src="../resources/robin.jpg"> </img>
+								<img class="print" src="../resources/pawrobin.png"> </img>
+							</div>
+						</a>						
+						<div id="button-left" class="button"> <p><</p> </div>
+						<div id="button-right" class="button"> <p>></p> </div>
+					</div>
+				</div>
+			</div>
+			<div id="right-wrap">
+				<div id="right">
+					<a href= <?php echo "'".$homePage."'" ?>>
+						<div id="top-logo-wrap">
+							<div id="top-logo" class="logo">
+								<p id="logo-title"><?php echo $logoText ?></p>
+							</div>
+						</div>
+					</a>
+					<div id="text-wrap">
+						<div id="about-wrap">
+							<p id="about"><?php echo $aboutText ?></p>
+						</div>
+						<p class="title"> <?php echo $aboutTitle ?> </p>
+						<div id="about-image">
+						</div>
+						<div id="uniq12" class="text">
+							<p class="about-text"><?php echo $aboutContent ?></p>
+						</div>
+					</div>
+				</div>
+			</div>

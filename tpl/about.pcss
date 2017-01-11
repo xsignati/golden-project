@@ -1,0 +1,278 @@
+/* global settings */
+body{
+	font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif;
+	font-size:1em;
+	background-repeat: no-repeat;
+	background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+a{
+	color:inherit;
+	text-decoration:none;
+}
+
+/* layout settings */
+#wrap{
+	max-width: 65em;
+	margin: 10em auto 0 auto;
+}
+
+/* left column */
+
+#left{
+	width:50%;
+	float:left;
+	height:43em;
+	background: rgba(255, 255, 255, 0.5);
+	overflow:auto;
+}
+
+#ids-wrap{
+	margin-left:4em;
+	margin-top:13em;
+	position:relative;
+}
+/* gallery images */
+.id{
+	user-select: none;
+	cursor:pointer;
+	overflow:hidden;
+	width:21em;
+	height:14em;
+	 border-radius: 1em;
+    border: 0.1em;
+	position:relative;
+	background-image: linear-gradient(to bottom, #FFFFFF 0%, #EDEDED 50%, #CFCFCF 100%);
+	box-shadow:         0.3em 0.3em 1em 0.5em rgba(0, 0, 0, 0.35) ;
+}
+
+.link-image{
+	position:absolute;
+	width:100%;
+	height:100%;
+	background:#333;
+	z-index:1;
+	color:white;
+	font-size:1.2em;
+}
+.link-image > p{
+	position:absolute;
+	top:4em;
+	left:4em;
+}
+#link-image-m{
+	display:none;
+}
+#link-image-f{
+	display:none;
+}
+.id:hover>#link-image-m{
+	display: block;
+}
+.id:hover>#link-image-f{
+	display: block;
+}
+
+
+
+.link-image > p{
+	opacity:0.8;
+}
+
+.id:hover{
+	background-color:black;
+}
+
+#b-logo{
+	height:100%;
+	background-image: linear-gradient(to bottom, #F9FFE3 0%, #E6EDC4 20%, #E6EDC4 62.5%, #CBD1AE 90%);
+	width:8em;
+}
+#b-logo > img{
+	position:absolute;
+	top:6em;
+	left:0.5em;
+}
+#a-logo{
+	height:100%;
+	background-image: linear-gradient(to bottom, #D4D4D4 0%, #919191 25%, #404040 75%, #000000 100%);
+	width:8em;
+}
+
+#a-logo > p{
+	top:5em;
+	left:0.6em;
+	position:absolute;
+	color:#CCFFCC;
+	font-size:1em;
+	font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+	opacity:0.8;
+}
+
+#id-father{
+	z-index:1;
+}
+
+.id > p{
+	font-family:"Lucida Console", Monaco, monospace;
+	font-size:1.1em;
+	position:absolute;
+	margin:0;
+}
+.id > #agency{
+	font-size:2em;
+	left:6.3em;
+	top:0.2em;
+	font-weight:bold;
+}
+.id > #agent{
+	left:8em;
+	top:3em;
+	text-decoration: underline;
+}
+
+.id > #number{
+	left:8em;
+	top:4.5em;
+	text-decoration: underline;
+}
+
+#id-mother-wrap{
+	left:4em;
+	top:2em;
+	position:absolute;
+}
+
+#id-father > #photo{
+	position:absolute;
+	left:9em;
+	top:7em;
+}
+
+#id-mother > #photo{
+	position:absolute;
+	left:9em;
+	top:7em;
+}
+
+#id-father > .print{
+	top:7.6em;
+	left:14.8em;
+	position:absolute;
+}
+
+#id-mother > .print{
+	top:8em;
+	left:14.8em;
+	position:absolute;
+}
+.button{
+	width:4em;
+	height:4em;
+	background-image: linear-gradient(to bottom, #A8A8A8 0%, #000000 100%);
+	position:absolute;
+	color:white;
+	border: 0.1em;
+	border-radius: 0.5em;
+	box-shadow:         0.3em 0.3em 1em 0.5em rgba(0, 0, 0, 0.35) ;
+	cursor:pointer;
+}
+.button > p{
+	position:absolute;
+	font-size:6em;
+	top:-0.35em;
+	left:0.1em;
+	margin:0;
+	opacity:0.7;
+}
+#button-left{
+	left:8em;
+	top:19em;
+}
+
+#button-right{
+	left:14em;
+	top:19em;
+}
+
+/* right column */
+#right-wrap{
+}
+#right{
+	width:50%;
+	float:left;
+	height:43em;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+/*logo*/
+#top-logo-wrap{
+	height:5em;
+	background-image: linear-gradient(to top, #B68D3D 0%, #FDD05D 25%, #DEB249 50%, #FFEAA3 80%, #B28B3E 100%);
+}
+.logo{
+	position:relative;
+}
+.logo > p{
+	top:0.1em;
+	left:2.1em;
+	margin:0;
+	position:absolute;
+	opacity:0.6;
+	font-size:3em;
+	font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+	user-select: none; 
+	cursor: pointer;
+}
+
+/*news*/
+#about-wrap{
+	background: rgba(0, 0, 0, 0.4);
+	user-select: none; 
+	cursor: default;
+}
+#about{
+	font-size:3em;
+	color:#FDD05D;
+	opacity:0.9;
+	margin:0;
+	padding-top:0.5em;
+	padding-bottom:0.5em;
+	padding-left:3.8em;
+}
+#text-wrap{
+	height:38em;
+	word-wrap: break-word;
+	overflow:auto;
+}
+
+.text{
+	margin:1em 4em;
+}
+
+#about-image{
+	width:10em;
+	height:10em;
+	background-image:url("../resources/portrait.jpg");
+	opacity:0.8;
+	border-radius:50%;
+	margin: 2em auto 1em auto;
+	background-size: cover;
+}
+
+.about-text{
+	margin-top:2em;
+	font-size:1.2em;
+	color:white;
+	opacity:0.9;
+	text-align:center;
+}
+
+.title{
+	text-align:center;
+	font-size:2em;
+	color:#FDD05D;
+	opacity:0.9;
+}

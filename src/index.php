@@ -1,60 +1,59 @@
 <?php
-	$prefix = "../";
-	include $prefix."scripts/Template.php";
-	include $prefix."scripts/Database.php";
-	include $prefix."scripts/DatabaseInfo.php";
-	$hypertextPath = $prefix."tpl/index.phtml";
-	$sheetPath = $prefix."tpl/index.pcss";
-	$sheetTarget = $prefix."css/index.css";
+/**
+ * Templates' and sheets' paths
+ */
+$hypertextPath	= "../tpl/index.phtml";
+$sheetPath		= "../tpl/index.pcss";
+$sheetTarget	= "../css/index.css";
 
-	//create required class instances
-	$template = new Template;
-	$database = new Database($serverName, $userName, $password, $dbName);
-	
-	//load templates' paths
-	$template->load($hypertextPath, $sheetPath);
-	
-	//connect to db
-	$connection = $database->connectDatabase();
-	if($connection->connect_error){
-		die("Couldn't connect to db " . $connection->connect_error);
-	}
-	
-	//fill html and css templates
-	//sheets
-	$sheets = array();
-	$sheets[] = array(
-		"cssPath" => $sheetTarget,
-	);
-	$template->replace("sheets", $sheets);
-	
-	//scripts
-	$scripts = array();
-	$scripts[] = array(
-		"scriptPath" => $prefix.'scripts/NewsLoader.js',
-	);
-	$template->replace("scripts", $scripts);
+/**
+ * Load templates
+ */
+$template -> load($hypertextPath, $sheetPath);
 
-	//data
-	$query = "SELECT 
-			elements.type as tag, minitexts.miniText as description, links.link
-			FROM elements
-			LEFT JOIN
-			minitexts
-            ON elements.type = minitexts.type
-            LEFT JOIN
-            links
-            ON elements.type = links.type
-            WHERE elements.destination = 'home'";
-	$result = $connection->query($query);
-	while($resultSet = mysqli_fetch_assoc($result)) {
-		if($resultSet['description'] != null){
-			$template->replace($resultSet['tag'],$resultSet['description']);
-		}
-		if($resultSet['link'] != null){
-			$cssPath = "\t" . "background-image: url(\"" . $prefix . $resultSet['link'] . "\");";
-			$template->add($resultSet['tag'], $cssPath);
-		}
+/**
+ * fill html and css templates
+ */
+$sheets		=  array($sheetTarget);
+$template	-> replace("sheets", $sheets);
+$scripts	=  array();
+$scripts[]	=  array(
+	"scriptPath" => '../scripts/NewsLoader.js',
+);
+$template  -> replace("scripts", $scripts);
+
+/**
+ * Fetch elemental page content
+ */
+$query  = "SELECT name, content, destination
+		  FROM maincontents
+		  WHERE siteID = 'home'";
+$result = $connection->query($query);
+while($resultSet = mysqli_fetch_assoc($result)) {
+	if	($resultSet['destination'] == 'css'){
+		$cssPath = "\t"."background-image: url(\"".$resultSet['content']."\");";
+		$template->add($resultSet['name'], $cssPath);
 	}
-	$template->push($sheetTarget);
+	else
+		$template->replace($resultSet['name'],$resultSet['content']);
+}
+
+/**
+ * Get paws menu elements
+ */
+$query  = "SELECT id, subpageUrl, imgUrl, subpageText
+		   FROM menu";
+$result =  $connection->query($query);
+while($resultSet = mysqli_fetch_assoc($result)) {
+	foreach ($resultSet as $key => $value){
+		if	($key == 'imgUrl'){
+			$cssPath = "\t"."background-image: url(\"".$value."\");";
+			$template->add($key.$resultSet['id'], $cssPath);
+		}
+		else
+			$template->replace($key.$resultSet['id'],$value);
+	}
+}
+$template -> push($sheetTarget);
+$result	  -> close();
 ?>

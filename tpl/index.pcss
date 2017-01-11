@@ -1,5 +1,5 @@
 /* global settings */
-.hom{
+body{
 	font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif;
 	font-size:1em;
 	background-repeat: no-repeat;
@@ -8,19 +8,7 @@
     background-size: cover;
 }
 
-a{
-	color:inherit;
-	text-decoration:none;
-}
-
-/* layout settings */
-#wrap{
-	max-width: 65em;
-	margin: 10em auto 0 auto;
-}
-
 /* left column */
-
 #left{
 	width:50%;
 	float:left;
@@ -46,19 +34,19 @@ a{
 	padding-top:10em;
 }
 
-#paw1:hover > a > #pad1 > #alter-pad1{
+#paw1:hover > a > #pad1 > #imgUrl1{
 	display:block;
 }
 
-#paw2:hover > a > #pad2 > #alter-pad2{
+#paw2:hover > a > #pad2 > #imgUrl2{
 	display:block;
 }
 
-#paw3:hover > a > #pad3 > #alter-pad3{
+#paw3:hover > a > #pad3 > #imgUrl3{
 	display:block;
 }
 
-#paw4:hover > a > #pad4 > #alter-pad4{
+#paw4:hover > a > #pad4 > #imgUrl4{
 	display:block;
 }
 
@@ -112,25 +100,25 @@ a{
 	position:absolute;
 }
 
-#alter-pad1{
+#imgUrl1{
 		background-size:cover;
 		background-position: center;
 		display:none;
 }
 
-#alter-pad2{
+#imgUrl2{
 		background-size:cover;
 		background-position: center;
 		display:none;
 }
 
-#alter-pad3{
+#imgUrl3{
 		background-size:cover;
 		background-position: center;
 		display:none;
 }
 
-#alter-pad4{
+#imgUrl4{
 		background-size:cover;
 		background-position: center;
 		display:none;
@@ -176,27 +164,6 @@ a{
 	float:left;
 	height:43em;
 	background: rgba(0, 0, 0, 0.5);
-}
-
-/*logo*/
-#top-logo-wrap{
-	user-select: none; 
-	cursor: default;
-	height:5em;
-	background-image: linear-gradient(to top, #B68D3D 0%, #FDD05D 25%, #DEB249 50%, #FFEAA3 80%, #B28B3E 100%);
-}
-.logo{
-	position:relative;
-}
-.logo > p{
-	top:0.1em;
-	left:2.1em;
-	margin:0;
-	position:absolute;
-	opacity:0.6;
-	font-size:3em;
-	font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-	
 }
 
 /*news*/
@@ -284,20 +251,4 @@ a{
   content: "";
   display: inline-block;
   width: 100%;
-}
-
-#footer{
-	background-color:black;
-	clear:both;
-	height:5em;
-	color:white;
-	text-align: center;
-	opacity:0.8;
-	position:relative;
-}
-
-#footer:before{
-	content:'';
-	display:block;
-	padding:0.8em;
 }
