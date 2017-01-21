@@ -18,16 +18,19 @@ a{
 	background-image: linear-gradient(to top, #B68D3D 0%, #FDD05D 25%, #DEB249 50%, #FFEAA3 80%, #B28B3E 100%);
 }
 .logo{
-	position:relative;
+
 }
 .logo > p{
-	top:0.1em;
-	left:2.1em;
 	margin:0;
-	position:absolute;
+	text-align: center;
 	opacity:0.6;
 	font-size:3em;
 	font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+}
+.logo > p:before{
+	content:"";
+	height:0.1em;
+	display:block;
 }
 
 /*footer*/

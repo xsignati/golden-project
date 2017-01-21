@@ -1,4 +1,5 @@
-		<?php foreach($sheets as $sheet) { ?>
+		<title> <?php echo $title ?> </title>
+		<?php foreach($sheets as $sheet) { extract($sheet); ?>
 			<?php echo "<link href='".$sheetTarget."'rel='stylesheet'>" ?>
 		<?php } ?>
 	</head>
@@ -57,7 +58,7 @@
 							<p id="about"><?php echo $aboutText ?></p>
 						</div>
 						<p class="title"> <?php echo $aboutTitle ?> </p>
-						<div id="about-image">
+						<div id="aboutImage">
 						</div>
 						<div id="uniq12" class="text">
 							<p class="about-text"><?php echo $aboutContent ?></p>

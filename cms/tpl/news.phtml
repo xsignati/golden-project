@@ -1,0 +1,50 @@
+		<?php foreach($sheets as $sheet) { extract($sheet); ?>
+			<?php echo "<link href='".$sheetTarget."'rel='stylesheet'>" ?>
+		<?php } ?>
+	</head>
+	<body class="hom">
+	<?php foreach($scripts as $script) { extract($script); ?>
+		<?php echo "<script type='text/javascript' charset='UTF-8' src='".$scriptPath."'>.</script>" ?>
+	<?php } ?>
+		<div id="top">
+			Golden-Project CMS
+		</div>
+			<div id="left-wrap">
+				<div id="left">
+					<form action="run.php?action=news&option=addNews" method="post" enctype="multipart/form-data">
+						<p id= "add-news" class="news-label"> Dodaj news </p>
+						<div id="news-title-wrap">
+							<p id="news-title-label" class="news-label">Tytuł</p>
+							<input id="news-title" name = "title" required maxlength="40" class="input-text"></input>
+						</div>
+						<div id="news-text-wrap" >
+							<p id= "news-text-label" class="news-label"> Tekst </p>
+							<textarea id="news-text" name = "text" required class="input-text"></textarea>
+						</div>
+						<div id="news-image-wrap" >
+							<p id="image-title-label" class="news-label"> Zdjęcie </p>
+							<input id="upload-image" type="file" accept="image/*" name="image" />
+							<input id="send-news" type="submit" value="Dodaj news">
+						</div>
+					</form>
+				</div>
+				<?php if(!empty($errors)){foreach($errors as $key => $value) { extract($errors); ?>
+					<?php echo "<p id='error-msg'>".$value['error']." </p>" ?>
+				<?php }}?>
+			</div>
+			<div id="right-wrap">
+				<div id="right">
+					<p id= "remove-news" class="news-label"> Usuń news </p>
+					<div id="news-container">
+					<?php foreach($news as $key => $value) { extract($news); ?>
+						<?php echo "<div class='news-wrap'>
+						<p class='news-p'>".$value['title']. "</p>
+						<form action='run.php?action=news&option=removeNews' method='post' enctype='multipart/form-data'>
+						<input id='".$value['id']."' type='submit' name='a' value='Usuń news' class='news'> </input>
+						<input type='hidden' name='id' value= '".$value['id']."'>
+						</form>
+						</div>" ?>
+					<?php } ?>
+					</div>
+				</div>
+			</div>

@@ -1,0 +1,66 @@
+		<?php foreach($sheets as $sheet) { extract($sheet);?>
+			<?php echo "<link href='".$sheetTarget."'rel='stylesheet'>" ?>
+		<?php } ?>
+	</head>
+	<body class="hom">
+	<?php foreach($scripts as $script) { extract($script); ?>
+		<?php echo "<script type='text/javascript' charset='UTF-8' src='".$scriptPath."'>.</script>" ?>
+	<?php } ?>
+		<div id="top">
+			Golden-Project CMS
+		</div>
+			<div id="left-wrap">
+				<div id="left">
+					<p id= "gallery-options" class="gallery-label"> Wybierz / dodaj / usuń zbiór zdjęć </p>
+					<p id="ps-list" class="gallery-label"> Wybierz / usuń </p>
+					<div id="ps-container">
+					<?php foreach($photosets as $key => $value) { extract($photosets); ?>
+						<?php echo "<div class='ps-wrap'>
+						<a href='run.php?action=gallery&ps=".$value['id']."'>
+							<p class='ps-p'>".$value['name']. "</p>
+						</a>
+						<form action='run.php?action=gallery&option=removePs' method='post' enctype='multipart/form-data'>
+						<input id='".$value['id']."' type='submit' value='Usuń zbiór' class='ps'> </input>
+						<input type='hidden' name='id' value= '".$value['id']."'>
+						</form>
+						</div>" ?>
+					<?php } ?>
+					</div>
+					<form action="run.php?action=gallery&option=addPs" method="post" enctype="multipart/form-data">
+						<div id="add-ps-wrap" >
+							<p id="ps-title-label" class="gallery-label">Nazwa zbioru zdjęć</p>
+							<input id="ps-title" name = "psName" required maxlength="40" class="input-text"></input>
+							<input id="ps-add" type="submit" value="Dodaj zbiór">
+						</div>
+					</form>
+				</div>
+				<?php if(!empty($errors)){foreach($errors as $key => $value) { extract($errors); ?>
+					<?php echo "<p id='error-msg'>".$value['error']." </p>" ?>
+				<?php }}?>
+			</div>
+			<div id="right-wrap">
+				<div id="right">
+					<p id= "gallery-options" class="gallery-label"> Dodaj / usuń zdjęcia </p>
+					<p id="selected-ps" class="gallery-label">ID zbioru: <?php echo $ps ?> </p>
+					<div id = "i-container">
+						<?php foreach($photos as $key => $value) { extract($photos); ?>
+						<?php echo "<div class='images-wrap'>
+							<img src='"."../".$value['imgUrlMin']."'></img>
+							<form action='run.php?action=gallery&option=removePhoto' method='post' enctype='multipart/form-data'>
+								<input id='img-".$value['id']."' type='submit' value='usuń' class='images'> </input>
+								<input type='hidden' name='id' value= '".$value['id']."'>
+								<input type='hidden' name='photosetId' value= '".$value['photosetId']."'>
+							</form>
+						</div>" ?>
+					<?php } ?>
+					</div>
+					<form action="run.php?action=gallery&option=addPhoto" method="post" enctype="multipart/form-data">
+						<div id="add-photo-wrap" >
+							<p id="image-title-label" class="gallery-label"> Zdjęcie </p>
+							<input id="upload-image" type="file" accept="image/*" name="image" />
+							<input id="send-photo" type="submit" value="Dodaj zdjęcie">
+							<input type='hidden' name='id' value= '<?php echo $ps ?>'>
+						</div>
+					</form>
+				</div>
+			</div>

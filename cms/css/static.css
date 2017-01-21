@@ -1,0 +1,73 @@
+/*global settings */
+a{
+	color:inherit;
+	text-decoration:none;
+}
+
+/* top column */
+#top{
+	background-image: linear-gradient(to top, #B68D3D 0%, #FDD05D 25%, #DEB249 50%, #FFEAA3 80%, #B28B3E 100%);
+	font-size:2em;
+	color:rgba(0, 0, 0, 0.6);
+	height:3em;
+	text-align:center;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+#top:before{
+	content:"";
+	display:block;
+	height:0.8em;
+}
+
+/*footer*/
+#footer{
+	background-image: linear-gradient(to bottom, #737373 0%, #0D0D0D 50%, #000000 100%);
+	clear:both;
+	height:5em;
+	color:white;
+	text-align: center;
+	opacity:0.8;
+	position:relative;
+}
+
+#footer:before{
+	content:'';
+	display:block;
+	padding:0.8em;
+}
+
+#right-menu{
+	width:10%;
+	height:56em;
+	background-color:black;
+	float:left;
+}
+
+.option{
+	background-image: linear-gradient(to bottom, #737373 0%, #0D0D0D 50%, #000000 100%);
+	width:100%;
+	height:5em;
+	color:white;
+	text-align:center;
+}
+.option:hover{
+	background-image: linear-gradient(to bottom, #A8A8A8 0%, #5C5C5C 50%, #454545 100%);
+}
+.option > a {
+	width:100%;
+	height:100%;
+	display:block;
+}
+
+#error-msg{
+	margin:0;
+	color:red;
+	font-size:1.5em;
+	margin-left:4em;
+	overflow: hidden;
+}
+
+#logout >ul > li{
+	height:3em;
+	color:red;
+}

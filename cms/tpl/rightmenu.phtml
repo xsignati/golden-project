@@ -1,0 +1,33 @@
+<div id="right-menu"> 
+					<div class="option">
+						<a href="run.php?action=news">
+							Dodaj / Usuń News
+						</a>
+					</div>
+					<div class="option">
+						<a href="run.php?action=gallery">
+							Dodaj / Usuń zdjęcia
+						</a>
+					</div>
+					<div class="option">
+						<a href="run.php?action=about">
+							Zmień info o mnie
+						</a>
+					</div>
+					<div class="option">
+						<a href="run.php?action=main">
+							Konfiguracja ogólna
+						</a>
+					</div>
+					<div id= "logout"> 
+					<?php if (!securePage($_SERVER['PHP_SELF'])){die();} 
+					if(isUserLoggedIn()) { 	echo "
+						<ul>
+						<li><a href='account.php'>Konto domowe</a></li>
+						<li><a href='user_settings.php'>Ustawienia</a></li>
+						<li><a href='logout.php'>Wyloguj</a></li>
+						</ul>";
+					}
+					?>
+					</div>
+				</div>

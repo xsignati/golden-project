@@ -1,0 +1,48 @@
+		<?php foreach($sheets as $sheet) { extract($sheet); ?>
+			<?php echo "<link href='".$sheetTarget."'rel='stylesheet'>" ?>
+		<?php } ?>
+	</head>
+	<body class="hom">
+	<?php foreach($scripts as $script) { extract($script); ?>
+		<?php echo "<script type='text/javascript' charset='UTF-8' src='".$scriptPath."'>.</script>" ?>
+	<?php } ?>
+		<div id="top">
+			Golden-Project CMS
+		</div>
+			<div id="left-wrap">
+				<div id="left">
+					<form action="run.php?action=about&option=setAbout" method="post" enctype="multipart/form-data">
+						<p id= "add-about" class="about-label"> Zmień informacje "o mnie" </p>
+						<div id="about-title-wrap">
+							<p id="about-title-label" class="about-label">Tytuł</p>
+							<input id="about-title" name = "title" required maxlength="40" class="input-text"></input>
+						</div>
+						<div id="about-text-wrap" >
+							<p id= "about-text-label" class="about-label"> Tekst </p>
+							<textarea id="about-text" name = "text" required class="input-text"></textarea>
+						</div>
+						<div id="about-image-wrap" >
+							<p id="image-title-label" class="about-label"> Zdjęcie </p>
+							<input id="upload-image" type="file" accept="image/*" name="image" />
+							<input id="send-about" type="submit" value="Dodaj about">
+						</div>
+					</form>
+				</div>
+					<?php if(!empty($errors)){foreach($errors as $key => $value) { extract($errors); ?>
+						<?php echo "<p id='error-msg'>".$value." </p>" ?>
+					<?php }}?>
+			</div>
+			<div id="right-wrap">
+				<div id="right">
+					<p id= "r-add-about" class="about-label"> Podgląd elementów "o mnie" </p>
+					<p id="r-about-title-label" class="about-label">Tytuł</p>
+					<div id="r-about-title-wrap">
+						<p id="r-about-title"> <?php echo $aboutTitle ?></p>
+					</div>
+					<p id= "r-about-text-label" class="about-label"> Tekst </p>
+					<div id="r-about-text-wrap" >
+						<p id="r-about-text"> <?php echo $aboutContent ?></p>
+					</div>
+						<img id="r-about-image" src="<?php echo "../".$aboutImage ?>"></img>
+				</div>
+			</div>

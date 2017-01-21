@@ -9,18 +9,21 @@ $sheetTarget	= "../css/about.css";
 /**
  * Load templates
  */
-$template -> load($hypertextPath, $sheetPath);
+$template -> load($hypertextPath, $sheetPath, $sheetTarget);
 
 /**
- * Set CSS sheets and JS scripts
+ * fill html and css templates
  */
-$sheets		=  array($sheetTarget);
+$sheets		=  array();
+$sheets[]	=  array(
+	"sheetTarget" => $sheetTarget,
+);
 $template	-> replace("sheets", $sheets);
 $scripts	=  array();
 $scripts[]	=  array(
-	"scriptPath" => '../scripts/IdChanger.js',
+	"scriptPath" => '../scripts/IdChanger.js'
 );
-$template->replace("scripts", $scripts);
+$template  -> replace("scripts", $scripts);
 
 /**
  * Get elementar site elements (title, background, etc.)
@@ -38,13 +41,4 @@ while ($resultSet = mysqli_fetch_assoc($result)) {
 		$template->replace($resultSet['name'],$resultSet['content']);
 }
 
-/**
- * Open a namespace to apply all changes to template
- */
-$template->push($sheetTarget);
-
-/**
- * Close query result
- */
-$result->close();
 ?>

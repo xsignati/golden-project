@@ -1,59 +1,45 @@
 <?php
-/**
- * Templates' and sheets' paths
- */
-$hypertextPath	= "../tpl/index.phtml";
-$sheetPath		= "../tpl/index.pcss";
-$sheetTarget	= "../css/index.css";
+include "../scripts/Template.php";
+include "../scripts/Database.php";
+include "../scripts/DatabaseInfo.php";
+$template = new Template;
+$database = new Database($serverName, $userName, $password, $dbName);
+$connection = $database->connectDatabase();
 
 /**
- * Load templates
+ * Add header content
  */
-$template -> load($hypertextPath, $sheetPath);
+$staticSheet = "../css/static.css";
+$jQuery = "../lib/jquery-1.12.1.min.js";
+$template->replace("jQuery", $jQuery);
+$template->replace("scripts", $staticSheet);
+include("../tpl/header.phtml");
 
 /**
- * fill html and css templates
+ * Add a choosen subpage
  */
-$sheets		=  array($sheetTarget);
-$template	-> replace("sheets", $sheets);
-$scripts	=  array();
-$scripts[]	=  array(
-	"scriptPath" => '../scripts/NewsLoader.js',
-);
-$template  -> replace("scripts", $scripts);
-
-/**
- * Fetch elemental page content
- */
-$query  = "SELECT name, content, destination
-		  FROM maincontents
-		  WHERE siteID = 'home'";
-$result = $connection->query($query);
-while($resultSet = mysqli_fetch_assoc($result)) {
-	if	($resultSet['destination'] == 'css'){
-		$cssPath = "\t"."background-image: url(\"".$resultSet['content']."\");";
-		$template->add($resultSet['name'], $cssPath);
-	}
-	else
-		$template->replace($resultSet['name'],$resultSet['content']);
-}
-
-/**
- * Get paws menu elements
- */
-$query  = "SELECT id, subpageUrl, imgUrl, subpageText
-		   FROM menu";
-$result =  $connection->query($query);
-while($resultSet = mysqli_fetch_assoc($result)) {
-	foreach ($resultSet as $key => $value){
-		if	($key == 'imgUrl'){
-			$cssPath = "\t"."background-image: url(\"".$value."\");";
-			$template->add($key.$resultSet['id'], $cssPath);
-		}
-		else
-			$template->replace($key.$resultSet['id'],$value);
+$action = 'home';
+if(!empty($_GET['action'])){
+	$reqAction = basename($_GET['action']);
+	if(file_exists($reqAction.".php")){
+		$action = $reqAction;
 	}
 }
-$template -> push($sheetTarget);
-$result	  -> close();
+include ($action.".php");
+
+/**
+ * Add a template content
+ */
+$template -> push();
+
+/**
+ * Add a footer
+ */
+include("../tpl/footer.phtml");
+
+/**
+ * Close database connection
+ */
+$connection->close();
+$result->close();
 ?>

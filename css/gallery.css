@@ -1,5 +1,6 @@
 /* global settings */
-.gal{
+body{
+	background-image: url("../resources/gallery-background.jpg");
 	font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif;
 	font-size:1em;
 	background-repeat: no-repeat;
@@ -143,8 +144,4 @@
 	font-size:2em;
 	color:#FDD05D;
 	opacity:0.9;
-}
-
-body{
-	background-image: url("../resources/gallery-background.jpg");
 }
